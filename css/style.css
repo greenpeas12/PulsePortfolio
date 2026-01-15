@@ -54,3 +54,47 @@ h1 {
   color: var(--accent);
 }
 
+body {
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+p {
+  max-width: 720px;
+}
+
+section {
+  padding-top: 24px;
+  border-top: 1px solid #eee;
+}
+
+section:first-of-type {
+  border-top: none;
+}
+
+
+/* nav polish */
+nav {
+  margin-bottom: 48px;
+  font-size: 14px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #666;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+figure img {
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
