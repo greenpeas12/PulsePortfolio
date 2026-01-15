@@ -9,6 +9,18 @@ body {
   --accent: #727880;
 }
 
+  body {
+  background: var(--bg);
+  color: var(--text);
+}
+p, li {
+  color: #2a2a2a;
+}
+
+h1, h2 {
+  color: var(--accent);
+}
+
 }
 
 nav {
@@ -104,3 +116,10 @@ figure img {
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
+nav a {
+  color: #555;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
