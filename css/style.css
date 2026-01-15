@@ -145,3 +145,51 @@ h1, h2 {
 p, li {
   color: #2a2a2a !important;
 }
+
+
+/* global color system */
+:root {
+  --bg: #f4f6f8;
+  --text: #1c1c1c;
+  --accent: #2f3a4f;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 64px);
+}
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  margin-top: 48px;
+  color: var(--accent);
+}
+
+p, li {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+
+nav {
+  margin-bottom: 64px;
+  font-size: 0.9rem;
+}
+
+nav a {
+  color: #555;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
