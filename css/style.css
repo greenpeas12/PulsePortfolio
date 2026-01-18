@@ -154,7 +154,7 @@ body::before {
 }
 
 section {
-  margin-bottom: 72px;
+  margin-bottom: 56px;
   position: relative;
 }
 
@@ -208,10 +208,11 @@ p {
     margin-bottom: 12px;
   }
 
- .home-hero {
-  padding-top: 96px;
-  padding-bottom: 64px;
+.home-hero {
+  padding-top: 72px;
+  padding-bottom: 48px;
 }
+
 
 .home-hero h1 {
   margin-bottom: 12px;
@@ -229,3 +230,20 @@ p {
   }
 }
 
+/* isolate home hero from global spacing */
+.home-hero {
+  margin-bottom: 0;
+}
+
+.home-hero h1,
+.home-hero p {
+  margin-top: 0;
+}
+
+
+@media (max-width: 600px) {
+  .home-hero {
+    padding-top: 56px;
+    padding-bottom: 32px;
+  }
+}
