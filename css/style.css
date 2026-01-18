@@ -85,3 +85,53 @@ figure img {
   max-width: 640px;
   color: #444;
 }
+
+
+/* soft page texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(47,58,79,0.06), transparent 40%),
+    radial-gradient(800px 400px at 90% 10%, rgba(47,58,79,0.04), transparent 40%);
+  z-index: -1;
+}
+
+
+section {
+  position: relative;
+  padding-top: 24px;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #d0d5db;
+}
+
+h2 {
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+ul li {
+  margin-bottom: 12px;
+}
+
+
+a {
+  transition: color 0.2s ease;
+}
+
+details summary {
+  transition: color 0.2s ease;
+}
+
+details[open] summary {
+  color: #2f3a4f;
+}
