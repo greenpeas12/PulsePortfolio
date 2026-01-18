@@ -136,7 +136,63 @@ details[open] summary {
   color: #2f3a4f;
 }
 
+/* visual layer — background texture */
+body {
+  background-color: #f4f6f8;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(47,58,79,0.08), transparent 45%),
+    radial-gradient(700px 400px at 90% 10%, rgba(47,58,79,0.06), transparent 45%);
+  z-index: -1;
+}
+
 section {
-  border: 5px solid limegreen;
+  margin-bottom: 72px;
+  position: relative;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background: #c9ced6;
+}
+
+h1 {
+  margin-bottom: 32px;
+}
+
+h2 {
+  margin-bottom: 24px;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.home-hero {
+  border-left: 4px solid #2f3a4f;
+  padding-left: 32px;
+}
+
+@media (max-width: 600px) {
+  section::before {
+    width: 32px;
+  }
+
+  .home-hero {
+    border-left-width: 3px;
+    padding-left: 20px;
+  }
 }
 
