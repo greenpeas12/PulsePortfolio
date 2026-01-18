@@ -86,4 +86,17 @@
 </section>
 
 </body>
+
+ <script>
+ const res = await fetch(
+  "https://pulse.goelradhika112.workers.dev",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: userText }),
+  }
+);
+
+</script>
+
 </html>
