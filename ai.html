@@ -99,4 +99,60 @@
 
 </script>
 
+
+<section>
+  <h1>pulse ai assistant</h1>
+  <p>
+    this assistant is constrained to the pulse marketing case study.
+    ask about insights, strategy, funnel logic, or creative decisions.
+  </p>
+</section>
+
+<section class="chat">
+  <div id="messages"></div>
+
+  <form id="chat-form">
+    <input
+      type="text"
+      id="user-input"
+      placeholder="ask about the strategy, insights, or risks…"
+      required
+    />
+    <button type="submit">send</button>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById("chat-form");
+  const input = document.getElementById("user-input");
+  const messages = document.getElementById("messages");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    input.value = "";
+    messages.innerHTML += `<p><strong>you:</strong> ${userText}</p>`;
+
+    try {
+      const res = await fetch(
+        "https://pulse-ai-yourname.workers.dev",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: userText }),
+        }
+      );
+
+      const data = await res.json();
+      messages.innerHTML += `<p><strong>pulse ai:</strong> ${data.reply}</p>`;
+    } catch (err) {
+      messages.innerHTML += `<p><em>error contacting ai</em></p>`;
+    }
+  });
+</script>
+
+
 </html>
