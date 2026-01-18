@@ -29,7 +29,7 @@ p, li {
 }
 
 nav {
-  margin-bottom: 64px;
+  margin-bottom: 24px;
   font-size: 0.9rem;
 }
 
@@ -246,4 +246,13 @@ p {
     padding-top: 56px;
     padding-bottom: 32px;
   }
+}
+
+/* tighten nav → hero spacing on home */
+.home-hero {
+  margin-top: 0;
+}
+
+.home-hero nav {
+  margin-bottom: 0;
 }
