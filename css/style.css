@@ -1,163 +1,25 @@
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-
-  margin: 40px;
-  line-height: 1.6;
-  :root {
-  --bg: #e4d7cc;
-  --text: #1c1c1c;
-  --accent: #727880;
-}
-
-  body {
-  background: var(--bg);
-  color: var(--text);
-}
-p, li {
-  color: #2a2a2a;
-}
-
-h1, h2 {
-  color: var(--accent);
-}
-
-}
-
-nav {
-  margin-bottom: 32px;
-}
-
-nav a {
-  text-decoration: none;
-  margin-right: 12px;
-  color: #111;
-}
-
-h1, h2 {
-  font-weight: 600;
-}
-
-section {
-  max-width: 800px;
-  margin-bottom: 48px;
-}
-
-figure {
-  margin: 0 0 48px 0;
-}
-
-figure img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid #eee;
-}
-
-figcaption {
-  font-size: 14px;
-  color: #555;
-  margin-top: 8px;
-}
-
-:root {
-  --accent: #e4dad2;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-h1 {
-  color: var(--accent);
+  background: #f4f6f8;
+  color: #1c1c1c;
+  margin: 0;
+  padding: 40px;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 body {
-  max-width: 960px;
-  margin: 60px auto;
-  padding: 0 24px;
-}
-
-p {
-  max-width: 720px;
-}
-
-section {
-  padding-top: 24px;
-  border-top: 1px solid #eee;
-}
-
-section:first-of-type {
-  border-top: none;
-}
-
-
-/* nav polish */
-nav {
-  margin-bottom: 48px;
-  font-size: 14px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #666;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-
-}
-
-figure img {
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-nav a {
-  color: #555;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-
-/* FINAL COLOR OVERRIDES — MUST BE LAST */
-
-:root {
-  --bg: #f9fafb;
-  --text: #1c1c1c;
-  --accent: #2f3a4f;
-}
-
-
-
-/* global color system */
-:root {
-  --bg: #f4f6f8;
-  --text: #1c1c1c;
-  --accent: #2f3a4f;
-}
-body {
-  background-color: var(--bg);
-  color: var(--text);
   max-width: 960px;
   margin: 0 auto;
   padding: clamp(24px, 5vw, 64px);
 }
+
 h1 {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   line-height: 1.1;
-  color: var(--accent);
 }
 
 h2 {
   font-size: clamp(1.3rem, 3vw, 1.7rem);
   margin-top: 48px;
-  color: var(--accent);
 }
 
 p, li {
@@ -165,7 +27,6 @@ p, li {
   line-height: 1.6;
   max-width: 720px;
 }
-
 
 nav {
   margin-bottom: 64px;
@@ -175,12 +36,13 @@ nav {
 nav a {
   color: #555;
   text-decoration: none;
+  margin-right: 12px;
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: #2f3a4f;
 }
 
-
-
-
+section {
+  margin-bottom: 64px;
+}
