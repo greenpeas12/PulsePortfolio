@@ -182,11 +182,6 @@ p {
   margin-bottom: 20px;
 }
 
-.home-hero {
-  position: relative;
-  padding-top: clamp(64px, 16vh, 120px);
-  padding-bottom: clamp(64px, 16vh, 120px);
-}
 
 
 
@@ -195,10 +190,7 @@ p {
     width: 32px;
   }
 
-  .home-hero {
-    border-left-width: 3px;
-    padding-left: 20px;
-  }
+ 
 }
 
 @media (max-width: 600px) {
@@ -209,22 +201,31 @@ p {
 }
 
 
-.home-hero h1 {
-  margin-bottom: 16px;
-}
 
-.home-hero p {
-  margin-top: 0;
-}
 
 @media (max-width: 600px) {
   .home-hero h1 {
     margin-bottom: 12px;
   }
 
+ .home-hero {
+  padding-top: 96px;
+  padding-bottom: 64px;
+}
+
+.home-hero h1 {
+  margin-bottom: 12px;
+}
+
+.home-hero p {
+  margin-top: 0;
+  max-width: 600px;
+}
+
+@media (max-width: 600px) {
   .home-hero {
-    padding-top: 72px;
-    padding-bottom: 72px;
+    padding-top: 64px;
+    padding-bottom: 48px;
   }
 }
 
