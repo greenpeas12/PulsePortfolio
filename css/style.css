@@ -260,3 +260,16 @@ p {
 .home-hero h1 {
   margin-top: 0;
 }
+
+/* tighten nav → hero spacing on home */
+.home-hero {
+  margin-top: 0;
+}
+
+.home-hero nav {
+  margin-bottom: 0;
+}
+
+.home-hero h1 {
+  margin-top: 0;
+}
