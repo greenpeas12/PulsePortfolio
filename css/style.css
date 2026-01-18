@@ -46,3 +46,21 @@ nav a:hover {
 section {
   margin-bottom: 64px;
 }
+
+
+figure {
+  max-width: 720px;
+  margin: 0 auto 64px auto;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  figure {
+    margin-bottom: 48px;
+  }
+}
