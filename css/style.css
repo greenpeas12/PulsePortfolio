@@ -93,10 +93,12 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(47,58,79,0.06), transparent 40%),
-    radial-gradient(800px 400px at 90% 10%, rgba(47,58,79,0.04), transparent 40%);
+    radial-gradient(1000px 600px at 0% 0%, rgba(47,58,79,0.18), transparent 50%),
+    radial-gradient(900px 500px at 100% 10%, rgba(47,58,79,0.14), transparent 55%),
+    linear-gradient(180deg, rgba(47,58,79,0.06), transparent 40%);
   z-index: -1;
 }
+
 
 
 section {
@@ -181,9 +183,11 @@ p {
 }
 
 .home-hero {
-  border-left: 4px solid #2f3a4f;
-  padding-left: 32px;
+  position: relative;
+  padding-top: clamp(80px, 20vh, 160px);
+  padding-bottom: clamp(80px, 20vh, 160px);
 }
+
 
 @media (max-width: 600px) {
   section::before {
@@ -196,3 +200,9 @@ p {
   }
 }
 
+@media (max-width: 600px) {
+  body::before {
+    background:
+      radial-gradient(600px 400px at 50% -10%, rgba(47,58,79,0.18), transparent 55%);
+  }
+}
