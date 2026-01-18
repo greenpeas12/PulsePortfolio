@@ -256,3 +256,7 @@ p {
 .home-hero nav {
   margin-bottom: 0;
 }
+
+.home-hero h1 {
+  margin-top: 0;
+}
