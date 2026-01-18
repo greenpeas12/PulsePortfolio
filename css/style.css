@@ -64,3 +64,24 @@ figure img {
     margin-bottom: 48px;
   }
 }
+
+
+.home-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.05;
+  max-width: 900px;
+}
+
+.home-hero p {
+  margin-top: 32px;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  max-width: 640px;
+  color: #444;
+}
