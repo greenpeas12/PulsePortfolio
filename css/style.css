@@ -133,18 +133,6 @@ nav a:hover {
   --accent: #2f3a4f;
 }
 
-body {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
-}
-
-h1, h2 {
-  color: var(--accent) !important;
-}
-
-p, li {
-  color: #2a2a2a !important;
-}
 
 
 /* global color system */
@@ -193,7 +181,6 @@ nav a:hover {
   color: var(--accent);
 }
 
-body {
-  background: red !important;
-}
+body { background: red; }
+
 
