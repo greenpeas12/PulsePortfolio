@@ -1,158 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
- 
 <head>
-
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-   
   <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ai marketing assistant — pulse</title>
-  <link rel="stylesheet" href="css/style.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pulse ai</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="insights.html">insights</a>
+    <a href="strategy.html">strategy</a>
+    <a href="creatives.html">creatives</a>
+    <a href="ai.html">ai</a>
+  </nav>
 
-<nav>
-  <a href="index.html">home</a> |
-  <a href="insights.html">market intelligence</a> |
-  <a href="strategy.html">strategy</a> |
-  <a href="creatives.html">creatives</a> |
-  <a href="ai.html">ai assistant</a>
-</nav>
-
-<h1>ai marketing assistant (simulated)</h1>
-
-<section>
-  <p>
-    this assistant simulates how an ai system trained exclusively on the pulse
-    project would explain the reasoning behind insights, strategy, and creative
-    decisions. it is intentionally constrained to this project’s context.
-  </p>
-</section>
-
-<section>
-  <h2>example questions</h2>
-
-  <details>
-    <summary>why does the strategy prioritize reassurance over conversion?</summary>
+  <section>
+    <h1>pulse ai assistant</h1>
     <p>
-      early-stage conversion in the wellness category is constrained by trust
-      formation. market signals indicated that users disengage when they feel
-      judged or instructed too early, making reassurance a prerequisite for
-      later activation.
+      ask general marketing or wellness questions. responses are anchored in the
+      pulse case study.
     </p>
-  </details>
+  </section>
 
-  <details>
-    <summary>which insight most strongly shaped the campaign?</summary>
-    <p>
-      the reframing of burnout as a systemic outcome rather than a personal
-      failure directly informed messaging tone, creative restraint, and the
-      decision to delay feature explanation.
-    </p>
-  </details>
+  <section class="chat">
+    <div id="messages"></div>
 
-  <details>
-    <summary>what would break this strategy?</summary>
-    <p>
-      if emotional validation is not followed by tangible behavioral progress,
-      users may perceive the product as passive. the strategy assumes adaptive
-      support can later demonstrate utility.
-    </p>
-  </details>
+    <form id="chat-form">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="ask a question…"
+        required
+      />
+      <button type="submit">send</button>
+    </form>
+  </section>
 
-  <details>
-    <summary>why avoid feature-heavy messaging?</summary>
-    <p>
-      feature enumeration triggers premature comparison in a saturated market.
-      delaying features preserves curiosity and allows meaning to precede
-      evaluation.
-    </p>
-  </details>
+  <script type="module">
+    const form = document.getElementById("chat-form");
+    const input = document.getElementById("user-input");
+    const messages = document.getElementById("messages");
 
-  <details>
-    <summary>how would you adapt this strategy if engagement dropped?</summary>
-    <p>
-      engagement decline would first prompt analysis of emotional tone rather
-      than channel performance, with messaging adjusted before budget changes.
-    </p>
-  </details>
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-</section>
+      const userText = input.value.trim();
+      if (!userText) return;
 
+      input.value = "";
+      messages.innerHTML += `<p><strong>you:</strong> ${userText}</p>`;
+
+      try {
+        const res = await fetch(
+          "https://pulse.goelradhika112.workers.dev",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: userText }),
+          }
+        );
+
+        const data = await res.json();
+
+        messages.innerHTML += `<p><strong>pulse ai:</strong> ${data.reply || JSON.stringify(data)}</p>`;
+      } catch (err) {
+        messages.innerHTML += `<p><em>error contacting ai</em></p>`;
+      }
+    });
+  </script>
 </body>
-
- <script>
- const res = await fetch(
-  "https://pulse.goelradhika112.workers.dev",
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: userText }),
-  }
-);
-
-</script>
-
-
-<section>
-  <h1>pulse ai assistant</h1>
-  <p>
-    this assistant is constrained to the pulse marketing case study.
-    ask about insights, strategy, funnel logic, or creative decisions.
-  </p>
-</section>
-
-<section class="chat">
-  <div id="messages"></div>
-
-  <form id="chat-form">
-    <input
-      type="text"
-      id="user-input"
-      placeholder="ask about the strategy, insights, or risks…"
-      required
-    />
-    <button type="submit">send</button>
-  </form>
-</section>
-
-<script>
- <script type="module">
-  const form = document.getElementById("chat-form");
-  const input = document.getElementById("user-input");
-  const messages = document.getElementById("messages");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const userText = input.value.trim();
-    if (!userText) return;
-
-    input.value = "";
-    messages.innerHTML += `<p><strong>you:</strong> ${userText}</p>`;
-
-    try {
-      const res = await fetch("https://pulse.goelradhika112.workers.dev/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userText }),
-      });
-
-      const data = await res.json();
-      messages.innerHTML += `<p><strong>pulse ai:</strong> ${data.reply}</p>`;
-    } catch (err) {
-      messages.innerHTML += `<p><em>error contacting ai</em></p>`;
-    }
-  });
-
-
-</script>
-
-
 </html>
