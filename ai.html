@@ -50,8 +50,12 @@
       if (!userText) return;
 
       input.value = "";
-      messages.innerHTML += `<p><strong>you:</strong> ${userText}</p>`;
-
+      messages.innerHTML += `
+  <div class="ai-message">
+    <div class="ai-label">pulse ai</div>
+    <div class="ai-text">${reply}</div>
+  </div>
+`;
       try {
         const res = await fetch(
           "https://pulse.goelradhika112.workers.dev",
