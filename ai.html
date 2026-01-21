@@ -67,6 +67,7 @@
         );
 
         const data = await res.json();
+messages.innerHTML += `<p class="thinking">pulse ai is thinking…</p>`;
 
         messages.innerHTML += `<p><strong>pulse ai:</strong> ${data.reply || JSON.stringify(data)}</p>`;
       } catch (err) {
