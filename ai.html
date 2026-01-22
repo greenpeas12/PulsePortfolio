@@ -39,7 +39,14 @@
   </section>
 
   <script type="module">
-
+    function formatReply(text) {
+      return text
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // bold
+      .replace(/\n- (.*?)/g, "<li>$1</li>")             // bullets
+      .replace(/(<li>.*<\/li>)/gs, "<ul>$1</ul>")       // wrap ul
+      .replace(/\n\n/g, "<br><br>");                    // spacing
+    }
+    
     console.log("ai script loaded");
     const form = document.getElementById("chat-form");
     const input = document.getElementById("user-input");
@@ -81,8 +88,13 @@
     thinkingEl.remove();
 
     messages.innerHTML += `
-      <p><strong>pulse ai:</strong> ${data.reply}</p>
-    `;
+  <div class="ai-message">
+    <div class="ai-label">pulse ai</div>
+    <div class="ai-text">
+      ${formatReply(data.reply)}
+    </div>
+  </div>
+`;
   } catch (err) {
     thinkingEl.remove();
     messages.innerHTML += `<p><em>error contacting ai</em></p>`;
