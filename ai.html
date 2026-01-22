@@ -51,6 +51,7 @@
 
       const userText = input.value.trim();
       console.log("submit fired");
+      console.log(userText);
       if (!userText) return;
       
 
@@ -62,6 +63,7 @@
   </div>
 `;
       try {
+        console.log("debug-neel: b4 fetch");
         const res = await fetch(
           "https://pulse.goelradhika112.workers.dev",
           {
@@ -70,6 +72,7 @@
             body: JSON.stringify({ message: userText }),
           }
         );
+        console.log("debug-neel: after fetch");
 
         const data = await res.json();
 messages.innerHTML += `<p class="thinking">pulse ai is thinking…</p>`;
