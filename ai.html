@@ -50,7 +50,9 @@
       e.preventDefault();
 
       const userText = input.value.trim();
+      console.log("submit fired");
       if (!userText) return;
+      
 
       input.value = "";
       messages.innerHTML += `
