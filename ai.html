@@ -40,48 +40,56 @@
 
   <script type="module">
 
-  console.log("ai script loaded");
- 
+    console.log("ai script loaded");
     const form = document.getElementById("chat-form");
     const input = document.getElementById("user-input");
     const messages = document.getElementById("messages");
-
     form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+  e.preventDefault();
 
-      const userText = input.value.trim();
-      console.log("submit fired");
-      console.log(userText);
-      if (!userText) return;
-      
+  const userText = input.value.trim();
+  if (!userText) return;
 
-      input.value = "";
-      messages.innerHTML += `
-  <div class="ai-message">
-    <div class="ai-label">pulse ai</div>
-    <div class="ai-text">${reply}</div>
-  </div>
-`;
-      try {
-        console.log("debug-neel: b4 fetch");
-        const res = await fetch(
-          "https://pulse.goelradhika112.workers.dev",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userText }),
-          }
-        );
-        console.log("debug-neel: after fetch");
+  console.log("submit fired:", userText);
 
-        const data = await res.json();
-messages.innerHTML += `<p class="thinking">pulse ai is thinking…</p>`;
+  input.value = "";
+  messages.innerHTML += `
+    <p><strong>you:</strong> ${userText}</p>
+  `;
 
-        messages.innerHTML += `<p><strong>pulse ai:</strong> ${data.reply || JSON.stringify(data)}</p>`;
-      } catch (err) {
-        messages.innerHTML += `<p><em>error contacting ai</em></p>`;
+  const thinkingEl = document.createElement("p");
+  thinkingEl.className = "thinking";
+  thinkingEl.textContent = "pulse ai is thinking…";
+  messages.appendChild(thinkingEl);
+
+  try {
+    console.log("debug-neel: before fetch");
+
+    const res = await fetch(
+      "https://pulse.goelradhika112.workers.dev",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userText }),
       }
-    });
+    );
+
+    console.log("debug-neel: after fetch");
+
+    const data = await res.json();
+
+    thinkingEl.remove();
+
+    messages.innerHTML += `
+      <p><strong>pulse ai:</strong> ${data.reply}</p>
+    `;
+  } catch (err) {
+    thinkingEl.remove();
+    messages.innerHTML += `<p><em>error contacting ai</em></p>`;
+    console.error(err);
+  }
+});
+    
   </script>
 </body>
 </html>
